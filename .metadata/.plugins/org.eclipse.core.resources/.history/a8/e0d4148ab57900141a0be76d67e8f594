@@ -1,0 +1,35 @@
+package Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/hi")
+
+public class HelloWorldServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private String name;
+	
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		name = req.getParameter("name");
+		System.out.println("Request Success!");
+		resp.getWriter().print(name + " Hello World From Servlet!!");	//브라우져에 응답보내기
+		// 여기에 접속 http://localhost:8080/FirstServer/hi
+	}
+	
+	
+}
